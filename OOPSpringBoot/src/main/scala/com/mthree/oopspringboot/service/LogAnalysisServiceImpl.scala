@@ -1,0 +1,41 @@
+package com.mthree.oopspringboot.service
+
+import com.mthree.oopspringboot.service.LogAnalysisService
+import com.mthree.api.IGeminiApi
+import com.mthree.oopspringboot.entity.AIResponse
+import com.mthree.oopspringboot.entity.Log
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
+
+@Component
+class LogAnalysisServiceImpl extends LogAnalysisService {
+
+    @Autowired
+    val api: IGeminiApi = null
+
+    def analyzeLog(log: Log): AIResponse = {
+      val response = api.analyzeLogs(log.getContent)
+      return new AIResponse(log, response)
+    }
+
+    def summarizeLog(log: Log): AIResponse = {
+      val response = api.summarizeIncident(log.getContent)
+      return new AIResponse(log, response)
+    }
+
+    def detectAnomalies(log: Log): AIResponse = {
+      val response = api.detectAnomaly(log.getContent)
+      return new AIResponse(log, "")
+    }
+
+    def recommendFixes(log: Log): AIResponse = {
+      val response = api.generateRecommendFix(log.getContent)
+      return new AIResponse(log, "")
+    }
+
+    def devopsChat(prompt: String): AIResponse = {
+      val response = api.getResponseFromDevopsChat(prompt)
+      return new AIResponse(null, response)
+    }
+    
+}

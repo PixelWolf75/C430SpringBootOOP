@@ -25,18 +25,21 @@ public class Controller {
     LogDataService logDataService;
 
     @PostMapping("/logs/upload")
-    public ResponseEntity<UUID> attachLog(){
+    public ResponseEntity<UUID> attachLog(@RequestBody Log log){
         //Return ID
-        return new ResponseEntity<>(UUID.randomUUID(), HttpStatus.CREATED);
+        Log newLog = logDataService.createLog(log);
+        return new ResponseEntity<>(newLog.getId(), HttpStatus.CREATED);
     }
 
     @GetMapping("/logs/{id}")
-    public ResponseEntity<List<Log>> getLogs(@PathVariable long id){
-        return ResponseEntity.ok(new ArrayList<>());
+    public ResponseEntity<Log> getLogs(@PathVariable UUID id){
+        Log log = logDataService.getLog(id);
+        return new ResponseEntity<>(log, HttpStatus.OK);
     }
 
     @PostMapping("/ai/analyze")
-    public ResponseEntity<AIResponse> analyzeLogs(){
+    public ResponseEntity<AIResponse> analyzeLogs(@RequestBody Log log){
+
         return new ResponseEntity<>(new AIResponse(),HttpStatus.OK);
     }
 

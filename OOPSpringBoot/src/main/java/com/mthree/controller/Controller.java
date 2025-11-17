@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
@@ -13,13 +14,13 @@ import java.util.List;
 public class Controller {
 
     @PostMapping("/logs/upload")
-    public ResponseEntity<Long> attachLog(){
+    public ResponseEntity<UUID> attachLog(){
         //Return ID
-        return new ResponseEntity<>(0L, HttpStatus.CREATED);
+        return new ResponseEntity<>(UUID.randomUUID(), HttpStatus.CREATED);
     }
 
     @GetMapping("/logs/{id}")
-    public ResponseEntity<List<Long>> getLogs(@PathVariable long id){
+    public ResponseEntity<List<UUID>> getLogs(@PathVariable long id){
         return ResponseEntity.ok(new ArrayList<>());
     }
 

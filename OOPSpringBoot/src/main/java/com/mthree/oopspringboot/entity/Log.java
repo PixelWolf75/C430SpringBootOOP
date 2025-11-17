@@ -35,7 +35,7 @@ public class Log {
     //Constructor
 
     Log(UUID id){
-
+        this.id = id;
     }
 
     public UUID getId() {

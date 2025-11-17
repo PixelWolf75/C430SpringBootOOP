@@ -39,27 +39,31 @@ public class Controller {
 
     @PostMapping("/ai/analyze")
     public ResponseEntity<AIResponse> analyzeLogs(@RequestBody Log log){
-
-        return new ResponseEntity<>(new AIResponse(),HttpStatus.OK);
+        AIResponse response = logAnalysisService.analyzeLog(log);
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
     @PostMapping("/ai/summarize-incident")
-    public ResponseEntity<AIResponse> summarize(){
-        return new ResponseEntity<>(new AIResponse(),HttpStatus.OK);
+    public ResponseEntity<AIResponse> summarize(@RequestBody Log log){
+        AIResponse response = logAnalysisService.summarizeLog(log);
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
     @PostMapping("/ai/detect-anomaly")
-    public ResponseEntity<AIResponse> detectAnomaly(){
-        return new ResponseEntity<>(new AIResponse(), HttpStatus.OK);
+    public ResponseEntity<AIResponse> detectAnomaly(@RequestBody Log log){
+        AIResponse response = logAnalysisService.detectAnomalies(log);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/ai/recommend-fix")
-    public ResponseEntity<AIResponse> recommendFix(){
-        return new ResponseEntity<>(new AIResponse(), HttpStatus.OK);
+    public ResponseEntity<AIResponse> recommendFix(@RequestBody Log log){
+        AIResponse response = logAnalysisService.recommendFixes(log);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/ai/devops-chat")
-    public ResponseEntity<Void> devopsChat(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<AIResponse> devopsChat(@RequestBody String prompt){
+        AIResponse response = logAnalysisService.devopsChat(prompt);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

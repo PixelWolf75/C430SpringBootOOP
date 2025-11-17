@@ -1,5 +1,6 @@
 package com.mthree.controller;
 
+import com.mthree.oopspringboot.entity.AIResponse;
 import com.mthree.oopspringboot.entity.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,23 +27,23 @@ public class Controller {
     }
 
     @PostMapping("/ai/analyze")
-    public ResponseEntity<String> analyzeLogs(){
-        return new ResponseEntity<>("",HttpStatus.OK);
+    public ResponseEntity<AIResponse> analyzeLogs(){
+        return new ResponseEntity<>(new AIResponse(),HttpStatus.OK);
     }
 
     @PostMapping("/ai/summarize-incident")
-    public ResponseEntity<String> summarize(){
-        return new ResponseEntity<>("",HttpStatus.OK);
+    public ResponseEntity<AIResponse> summarize(){
+        return new ResponseEntity<>(new AIResponse(),HttpStatus.OK);
     }
 
     @PostMapping("/ai/detect-anomaly")
-    public ResponseEntity<String> detectAnomaly(){
-        return new ResponseEntity<>("", HttpStatus.OK);
+    public ResponseEntity<AIResponse> detectAnomaly(){
+        return new ResponseEntity<>(new AIResponse(), HttpStatus.OK);
     }
 
     @PostMapping("/ai/recommend-fix")
-    public ResponseEntity<String> recommendFix(){
-        return new ResponseEntity<>("", HttpStatus.OK);
+    public ResponseEntity<AIResponse> recommendFix(){
+        return new ResponseEntity<>(new AIResponse(), HttpStatus.OK);
     }
 
     @PostMapping("/ai/devops-chat")

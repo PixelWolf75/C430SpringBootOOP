@@ -13,7 +13,6 @@ public class AIResponse {
     private UUID id;
 
     // which log this AI analysis belongs to
-
     @ManyToOne
     @JoinColumn(name = "log_id")
     private Log log;
@@ -22,6 +21,33 @@ public class AIResponse {
     private String analysis;
 
     private LocalDateTime createdAt;
+
+    /*
+    GENERATE INCIDENT SUMMARIES
+    *Convert thousands of lines
+    *log into a concise 5–10 line summary.
+    *
+     */
+    private String summary;
+
+    /*
+    DETECT ANOMALIES
+    * Send logs → AI identifies unusual patterns:
+    * sudden spike in errors
+    * memory leaks
+    * slow DB queries
+    * repeating warnings
+     */
+
+    private String anomalies;
+
+    /*
+    * RECOMMEND FIXES
+    * DevOps engineer sends logs →
+    * AI gives probable solutions.
+     */
+    private String recommendation;
+
 
     public AIResponse() {}
 
@@ -63,16 +89,40 @@ public class AIResponse {
         this.createdAt = createdAt;
     }
 
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getAnomalies() {
+        return anomalies;
+    }
+
+    public void setAnomalies(String anomalies) {
+        this.anomalies = anomalies;
+    }
+
+    public String getRecommendation() {
+        return recommendation;
+    }
+
+    public void setRecommendation(String recommendation) {
+        this.recommendation = recommendation;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         AIResponse that = (AIResponse) o;
-        return Objects.equals(id, that.id) && Objects.equals(log, that.log) && Objects.equals(analysis, that.analysis) && Objects.equals(createdAt, that.createdAt);
+        return Objects.equals(id, that.id) && Objects.equals(log, that.log) && Objects.equals(analysis, that.analysis) && Objects.equals(createdAt, that.createdAt) && Objects.equals(summary, that.summary) && Objects.equals(anomalies, that.anomalies) && Objects.equals(recommendation, that.recommendation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, log, analysis, createdAt);
+        return Objects.hash(id, log, analysis, createdAt, summary, anomalies, recommendation);
     }
 
     @Override
@@ -82,6 +132,9 @@ public class AIResponse {
                 ", log=" + log +
                 ", analysis='" + analysis + '\'' +
                 ", createdAt=" + createdAt +
+                ", summary='" + summary + '\'' +
+                ", anomalies='" + anomalies + '\'' +
+                ", recommendation='" + recommendation + '\'' +
                 '}';
     }
 }

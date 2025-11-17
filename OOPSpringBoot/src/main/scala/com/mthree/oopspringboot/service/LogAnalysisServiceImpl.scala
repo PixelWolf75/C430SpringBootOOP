@@ -4,11 +4,13 @@ import com.mthree.oopspringboot.service.LogAnalysisService
 import com.mthree.api.IGeminiApi
 import com.mthree.oopspringboot.entity.AIResponse
 import com.mthree.oopspringboot.entity.Log
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
 class LogAnalysisServiceImpl extends LogAnalysisService {
 
+    @Autowired
     val api: IGeminiApi = null
 
     def analyzeLog(log: Log): AIResponse = {

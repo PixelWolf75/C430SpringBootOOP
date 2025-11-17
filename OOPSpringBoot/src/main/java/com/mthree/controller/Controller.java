@@ -1,5 +1,6 @@
 package com.mthree.controller;
 
+import com.mthree.oopspringboot.entity.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,28 +21,28 @@ public class Controller {
     }
 
     @GetMapping("/logs/{id}")
-    public ResponseEntity<List<UUID>> getLogs(@PathVariable long id){
+    public ResponseEntity<List<Log>> getLogs(@PathVariable long id){
         return ResponseEntity.ok(new ArrayList<>());
     }
 
     @PostMapping("/ai/analyze")
-    public ResponseEntity<Void> analyzeLogs(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<String> analyzeLogs(){
+        return new ResponseEntity<>("",HttpStatus.OK);
     }
 
     @PostMapping("/ai/summarize-incident")
-    public ResponseEntity<Void> summarize(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<String> summarize(){
+        return new ResponseEntity<>("",HttpStatus.OK);
     }
 
     @PostMapping("/ai/detect-anomaly")
-    public ResponseEntity<Void> detectAnomaly(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<String> detectAnomaly(){
+        return new ResponseEntity<>("", HttpStatus.OK);
     }
 
     @PostMapping("/ai/recommend-fix")
-    public ResponseEntity<Void> recommendFix(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<String> recommendFix(){
+        return new ResponseEntity<>("", HttpStatus.OK);
     }
 
     @PostMapping("/ai/devops-chat")

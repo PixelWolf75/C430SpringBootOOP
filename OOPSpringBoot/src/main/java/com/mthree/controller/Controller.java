@@ -2,6 +2,9 @@ package com.mthree.controller;
 
 import com.mthree.oopspringboot.entity.AIResponse;
 import com.mthree.oopspringboot.entity.Log;
+import com.mthree.oopspringboot.service.LogAnalysisService;
+import com.mthree.oopspringboot.service.LogDataService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +17,12 @@ import java.util.UUID;
 @RequestMapping("/api")
 @CrossOrigin
 public class Controller {
+
+    @Autowired
+    LogAnalysisService logAnalysisService;
+
+    @Autowired
+    LogDataService logDataService;
 
     @PostMapping("/logs/upload")
     public ResponseEntity<UUID> attachLog(){

@@ -31,12 +31,12 @@ public class Log {
 
 
     //Defualt Const
-    Log() {
+    public Log() {
 
     }
 
     //Parametrised Constructor
-    Log(UUID id){
+    public Log(UUID id){
         this.id = id;
     }
 

@@ -15,12 +15,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class ImplGeminiApi implements IGeminiApi{
 
-    @Value("${GEMINI_API_KEY}")
     private final String apiKey;
 
     private final Client client;
 
-    public ImplGeminiApi(String apiKey){
+    public ImplGeminiApi(@Value("${GEMINI_API_KEY}") String apiKey){
         this.apiKey = apiKey;
         client = Client.builder().apiKey(apiKey).build();
     }

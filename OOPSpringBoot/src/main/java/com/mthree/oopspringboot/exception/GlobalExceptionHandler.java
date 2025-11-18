@@ -1,4 +1,4 @@
-package com.mthree.exception;
+package com.mthree.oopspringboot.exception;
 
 import com.google.genai.errors.ServerException;
 import org.springframework.http.HttpStatus;

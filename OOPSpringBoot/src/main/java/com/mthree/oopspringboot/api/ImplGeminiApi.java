@@ -1,11 +1,10 @@
-package com.mthree.api;
+package com.mthree.oopspringboot.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.genai.Client;
-import com.google.genai.errors.ServerException;
 import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.GenerateContentResponse;
 import com.google.genai.types.Schema;

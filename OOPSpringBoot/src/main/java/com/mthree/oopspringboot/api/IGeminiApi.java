@@ -1,4 +1,4 @@
-package com.mthree.api;
+package com.mthree.oopspringboot.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 

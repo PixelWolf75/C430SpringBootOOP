@@ -1,7 +1,7 @@
 package com.mthree.oopspringboot.service
 
 import com.mthree.oopspringboot.service.LogAnalysisService
-import com.mthree.api.IGeminiApi
+import com.mthree.oopspringboot.api.IGeminiApi
 import com.mthree.oopspringboot.entity.AIResponse
 import com.mthree.oopspringboot.entity.Log
 import org.springframework.beans.factory.annotation.Autowired

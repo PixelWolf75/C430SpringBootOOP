@@ -1,4 +1,4 @@
-package com.mthree.controller;
+package com.mthree.oopspringboot.controller;
 
 import com.mthree.oopspringboot.entity.AIResponse;
 import com.mthree.oopspringboot.entity.Log;

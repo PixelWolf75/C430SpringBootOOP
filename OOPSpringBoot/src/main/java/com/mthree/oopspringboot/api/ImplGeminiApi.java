@@ -92,24 +92,8 @@ public class ImplGeminiApi implements IGeminiApi{
 
     @Override
     public String getResponseFromDevopsChat(String text) throws JsonProcessingException {
-        ImmutableMap<String, Object> schema = ImmutableMap.of(
-                "type", "object",
-                "properties", ImmutableMap.of(
-                        "Likely cause: ", ImmutableMap.of("type", "string"),
-                        "Fix: ", ImmutableMap.of("type", "string")
-                ),
-                "required", ImmutableList.of("root_cause", "fix","impact")
-        );
-        ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(schema);
-
-        // Config
-        GenerateContentConfig config = getConfig(json);
-
-        // Response
         GenerateContentResponse response =
-                client.models.generateContent("gemini-2.5-flash", text, config);
-
+                client.models.generateContent("gemini-2.5-flash", text, null);
         return response.text();
     }
 }

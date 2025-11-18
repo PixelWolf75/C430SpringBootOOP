@@ -93,7 +93,8 @@ public class ImplGeminiApi implements IGeminiApi{
     @Override
     public String getResponseFromDevopsChat(String text) throws JsonProcessingException {
         GenerateContentResponse response =
-                client.models.generateContent("gemini-2.5-flash", text, null);
+                client.models.generateContent("gemini-2.5-flash",  "You are a DevOps expert. Provide clear, structured answers.\n\nUser question:\n"
+                        + text, null);
         return response.text();
     }
 }

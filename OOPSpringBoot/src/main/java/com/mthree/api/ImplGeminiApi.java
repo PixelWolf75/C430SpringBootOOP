@@ -10,7 +10,9 @@ import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.GenerateContentResponse;
 import com.google.genai.types.Schema;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ImplGeminiApi implements IGeminiApi{
 
     @Value("${GEMINI_API_KEY}")

@@ -1,8 +1,8 @@
-package com.mthree.oopspringboot.entity;
-
-public enum UserRole {
-    ADMIN,
-    DEVELOPER,
-    DEVOPS,
-    VIEWER
-}
+//package com.mthree.oopspringboot.entity;
+//
+//public enum UserRole {
+//    ADMIN,
+//    DEVELOPER,
+//    DEVOPS,
+//    VIEWER
+//}

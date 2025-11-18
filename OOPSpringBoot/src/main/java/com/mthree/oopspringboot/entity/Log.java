@@ -29,10 +29,6 @@ public class Log {
 
     private LocalDateTime createdAt;
 
-    @ManyToOne
-    @JoinColumn(name = "uploaded_by")
-    private User uploadedBy;
-
 
     //Defualt Const
     Log() {
@@ -84,24 +80,17 @@ public class Log {
         this.createdAt = createdAt;
     }
 
-    public User getUploadedBy() {
-        return uploadedBy;
-    }
-
-    public void setUploadedBy(User uploadedBy) {
-        this.uploadedBy = uploadedBy;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Log log = (Log) o;
-        return Objects.equals(id, log.id) && Objects.equals(filename, log.filename) && Objects.equals(content, log.content) && sourceType == log.sourceType && Objects.equals(createdAt, log.createdAt) && Objects.equals(uploadedBy, log.uploadedBy);
+        return Objects.equals(id, log.id) && Objects.equals(filename, log.filename) && Objects.equals(content, log.content) && sourceType == log.sourceType && Objects.equals(createdAt, log.createdAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, filename, content, sourceType, createdAt, uploadedBy);
+        return Objects.hash(id, filename, content, sourceType, createdAt);
     }
 
     @Override
@@ -112,7 +101,6 @@ public class Log {
                 ", content='" + content + '\'' +
                 ", sourceType=" + sourceType +
                 ", createdAt=" + createdAt +
-                ", uploadedBy=" + uploadedBy +
                 '}';
     }
 }

@@ -53,7 +53,7 @@
         </dependency>
 
         <!-- Scala -->
-        
+
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>

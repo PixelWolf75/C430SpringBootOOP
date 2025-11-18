@@ -20,17 +20,23 @@ class LogAnalysisServiceImpl extends LogAnalysisService {
 
     def summarizeLog(log: Log): AIResponse = {
       val response = api.summarizeIncident(log.getContent)
-      return new AIResponse(log, response)
+      val aiResponse = new AIResponse(log, null)
+      aiResponse.setSummary(response)
+      return aiResponse
     }
 
     def detectAnomalies(log: Log): AIResponse = {
       val response = api.detectAnomaly(log.getContent)
-      return new AIResponse(log, response)
+      val aiResponse = new AIResponse(log, null)
+      aiResponse.setAnomalies(response)
+      return aiResponse
     }
 
     def recommendFixes(log: Log): AIResponse = {
       val response = api.generateRecommendFix(log.getContent)
-      return new AIResponse(log, response)
+      val aiResponse = new AIResponse(log, null)
+      aiResponse.setRecommendation(response)
+      return aiResponse
     }
 
     def devopsChat(prompt: String): AIResponse = {

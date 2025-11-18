@@ -1,6 +1,10 @@
 package com.mthree.oopspringboot.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;

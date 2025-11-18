@@ -33,8 +33,13 @@ public class Log {
     @JoinColumn(name = "uploaded_by")
     private User uploadedBy;
 
-    //Constructor
 
+    //Defualt Const
+    Log() {
+
+    }
+
+    //Parametrised Constructor
     Log(UUID id){
         this.id = id;
     }
